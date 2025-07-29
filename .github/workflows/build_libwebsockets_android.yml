@@ -55,9 +55,11 @@ jobs:
           -DLWS_WITH_ZLIB=ON \
           -DLWS_WITH_SSL=ON \
           -DLWS_WITH_HTTP2=ON \
+          -Wno-dev \
+          -DENABLE_PROGRAMS=0 \
           -DCMAKE_BUILD_TYPE=Release \
           ..
-        cmake --build . --target libwebsockets
+        make -j
 
     - name: Build libwebsockets for Android armeabi-v7a
       working-directory: libwebsockets
